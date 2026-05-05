@@ -1,5 +1,10 @@
 {
     "python.analysis.extraPaths": [
         "./clinic"
-    ]
+    ],
+    "python.defaultInterpreterPath": "D:/clinic_project/clinic_project/env/Scripts/python.exe",
+    "terminal.integrated.env.windows": {
+        "VIRTUAL_ENV": "D:/clinic_project/clinic_project/env",
+        "PATH": "D:/clinic_project/clinic_project/env/Scripts;${env:PATH}"
+    }
 }
