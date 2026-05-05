@@ -1,0 +1,47 @@
+from django.db import models
+from .patient import Patient
+
+
+class PatientInitialInfo(models.Model):
+    patient = models.OneToOneField(Patient, on_delete=models.CASCADE, related_name="initial_info")
+
+    visit_goal = models.CharField(max_length=255, blank=True)
+    followed_diet_before = models.BooleanField(default=False)
+
+    status = models.CharField(
+        max_length=50,
+        choices=[
+            ('child', 'طفل'),
+            ('vegetarian', 'نباتي'),
+            ('pregnant', 'حامل'),
+            ('breastfeeding', 'مرضع'),
+        ],
+        blank=True
+    )
+
+    favorite_color = models.CharField(max_length=100, blank=True)
+
+    surgeries = models.TextField(blank=True)
+    last_analysis = models.TextField(blank=True)
+    doctor_diagnosis = models.TextField(blank=True)
+    visit_purpose = models.TextField(blank=True)
+    medications = models.TextField(blank=True)
+
+    # مشاكل صحية
+    has_pressure = models.BooleanField(default=False)
+    has_diabetes = models.BooleanField(default=False)
+    has_cholesterol = models.BooleanField(default=False)
+    has_colon = models.BooleanField(default=False)
+    has_constipation = models.BooleanField(default=False)
+    has_thyroid = models.BooleanField(default=False)
+    has_food_allergy = models.BooleanField(default=False)
+    has_pcos = models.BooleanField(default=False)
+    has_irregular_period = models.BooleanField(default=False)
+
+    # أدوية
+    takes_cortisone = models.BooleanField(default=False)
+    takes_birth_control = models.BooleanField(default=False)
+    takes_allergy_med = models.BooleanField(default=False)
+    takes_glucose_regulator = models.BooleanField(default=False)
+    takes_cycle_regulator = models.BooleanField(default=False)
+    takes_retan = models.BooleanField(default=False)
